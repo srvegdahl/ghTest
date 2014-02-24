@@ -1,9 +1,11 @@
-prog: prog.o
-	gcc -o prog prog.o
+prog: prog.o dessert.o
+	gcc -o prog prog.o dessert.o
 
-
-prog.o: prog.c
+prog.o: prog.c dessert.h
 	gcc -c prog.c
 
+dessert.o: dessert.c dessert.h
+	gcc -c dessert.c
+
 clean:
-	rm prog.o prog
+	rm *.o prog
